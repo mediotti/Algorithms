@@ -164,3 +164,26 @@ def ex11():
         n += 1
 
     print(triangle_type)
+
+def ex12():
+    # Se um carro estiver entre 80 e 100 km/h, cobre R$5,00 para cada km/h acima de 80km/h
+    # //                    entre 100 e 120 -> R$10,00
+    # //                    acima de 120 -> R$20,00
+
+    velocidade = int(input("Insira a velocidade do veículo: "))
+    if(velocidade > 80 and velocidade < 100):
+        excedente = velocidade - 80
+        multa=excedente*5
+    elif(velocidade < 120):
+        excedente = velocidade - 100
+        multa= (20*5) + excedente*10
+    else:
+        excedente = velocidade - 120
+        multa = (20*5) + (20*10) + excedente*20
+
+    if(multa <= 0):
+        print("Não há multa")
+    else:
+        print(f"Sua multa é {multa}")
+
+ex12()
