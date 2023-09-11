@@ -1,6 +1,5 @@
 import math
 
-
 def ex1():
     a = input("Primeiro valor: ")
     b = input("Segundo valor: ")
@@ -176,14 +175,68 @@ def ex12():
         multa=excedente*5
     elif(velocidade < 120):
         excedente = velocidade - 100
-        multa= (20*5) + excedente*10
+        multa= ((100-80)*5) + excedente*10
     else:
         excedente = velocidade - 120
-        multa = (20*5) + (20*10) + excedente*20
+        multa = ((100-80)*5) + ((120-100)*10) + excedente*20
 
     if(multa <= 0):
         print("Não há multa")
     else:
         print(f"Sua multa é {multa}")
 
-ex12()
+def salario():
+    isEmployee = input("Você trabalha? Insira a sua resposta(s/n): ").lower()
+
+    while isEmployee[0] != 'n' and isEmployee[0] != 's':
+        isEmployee = input("Insira uma opção valida: ").lower()
+        
+    salario = float(input("Insira o seu salário: "))
+    if salario <= 2112:
+        aliquota = 0
+    elif salario <=2826.65:
+        aliquota = 7.5
+    elif salario <= 3751.05:
+        aliquota = 15
+    elif salario <= 4664.68:
+        aliquota = 22.5
+    elif salario >= 4664.68:
+        aliquota = 27.5
+    print(f"Seu salário será {salario-((aliquota/100)*salario)}")
+
+def senha():
+    senha = 'senhaforte'
+    tentativaSenha = input("Insira sua senha: ")
+    tentativaNumero = 3
+
+    while tentativaSenha != senha and tentativaNumero > 0 :
+        tentativaSenha = input("Senha errada. Insira novamente sua senha: ")
+        tentativaNumero -= 1
+    if(tentativaSenha == senha):
+        print("Acesso liberado")
+    else:
+        print("TENTATIVAS ESGOTADAS")
+
+def calculadora():
+    option = input("Deseja acessar a calculadora? (s/n): ").lower()
+    while option[0] != 's':
+        if option[0] == 'n':
+            return
+        option = input('Opção invalida, insira s ou n: ').lower()
+    a = float(input("Insira o primeiro valor: "))
+    b = float(input("Insira o segundo valor: "))
+
+    operation = input("Insira a operação desejada (+ | - | / | *): ")
+    while operation != '+' and operation != '-' and operation != '/' and operation != '*':
+        operation = input('Opção inválida, insira uma operação (+ | - | / | *): ')
+    
+    if operation == '+':
+        print(f"Resposta: {a + b}")
+    elif operation == '-':
+        print(f"Resposta: {a - b}")
+    elif operation == '*':
+        print(f"Resposta: {a * b}")
+    elif operation == '/':
+        print(f"Resposta: {a / b}")
+    
+calculadora()
