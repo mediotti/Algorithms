@@ -52,13 +52,26 @@ def ex04():
 
 
 def ex05():
-    numA = int(input("Insira o primeiro numero do intervalo: "))
-    numB = int(input("Insira o segundo número do intervalo: "))
+    i = 0
+    numA = input("Insira o primeiro numero do intervalo: ")
+    while not numA.isnumeric():
+        numA = input("Insira um número válido: ")
+    numA = int(numA)
 
-    i = numA
-    while i < numB:
-        print(i)
-        i+=1
+    numB = input("Insira o segundo número do intervalo: ")
+    while not numB.isnumeric():
+        numB = input("Insira um número válido: ")
+    numB=int(numB)
+
+
+    if numA > numB:
+        i = numA
+        numA = numB
+        numB = i
+
+    while numA < numB:
+        print(numA)
+        numA += 1
     print(numB)
 
 def ex06():
