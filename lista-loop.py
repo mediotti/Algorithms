@@ -7,8 +7,7 @@ def ex01():
 def ex02():
     nome = input("Insira seu nome: ")
     while len(nome) < 3:
-        nome = input("Insira um nome válido: ")
-    
+        nome = input("Insira um nome válido(Acima de 1 caractere): ")
 
     idade = int(input("Insira sua idade: "))
     while idade < 0 or idade > 150:
@@ -153,4 +152,77 @@ def ex12():
     print(f"Média: {somaNotas/n}")
 
 def ex13():
-    
+    compensation = float(input("Insira o salário referente a 1995: "))
+    increaseRate = 1.5
+    year = 1995
+
+    while year < 2023:
+        year+=1
+        compensation+=compensation*increaseRate
+        increaseRate *=2
+    print(compensation)
+
+def ex14():
+    inputNumber = int(input("Insira um número: "))
+    firstLevel = 0
+    secondLevel = 0
+    thirdLevel = 0
+    fourthLevel = 0
+
+    while inputNumber >= 0:
+        if inputNumber > 0 and inputNumber < 25:
+            firstLevel +=1
+        elif inputNumber < 50:
+            secondLevel +=1
+        elif inputNumber < 75:
+            thirdLevel +=1
+        elif inputNumber <100:
+            fourthLevel +=1
+        inputNumber = int(input("Insira outro número: "))
+    print(f"[0-25] = {firstLevel} | [26-50] = {secondLevel} | [51-75] = {thirdLevel} | [76-100] = {fourthLevel}. ")
+
+def ex15():
+    print("1 - José")
+    votosJose = 0
+    print("2 - João")
+    votosJoao = 0
+    print("3 - Jéssica")
+    votosJessica = 0
+    print("4 - Jandira")
+    votosJandira = 0
+    print("5 - NULO")
+    votosNulo = 0
+    print("6 - EM BRANCO")
+    votosEmBranco = 0
+
+    voto = int(input("Insira o código do candidato que deseja votar: "))
+    votosTotal = 1
+
+    while voto != 0:
+        if voto < 0 and voto > 6:
+            voto = (int(input("Voto inválido, insira um valor válido ou 0 para sair do programa: ")))
+            votosTotal +=1
+        elif voto == 1:
+            votosJose += 1
+        elif voto == 2:
+            votosJoao += 1
+        elif voto == 3:
+            votosJessica += 1
+        elif voto == 4:
+            votosJandira += 1
+        elif voto == 5:
+            votosNulo += 1
+        elif voto == 6:
+            votosEmBranco += 1
+        voto = int(input("Insira o código do candidato que deseja votar: "))
+        votosTotal +=1
+
+    print(f"Votos do João: {votosJoao} votos")
+    print(f"Votos do José: {votosJose} votos")
+    print(f"Votos da Jessica: {votosJessica} votos")
+    print(f"Votos da Jandira: {votosJandira} votos")
+    print(f"Votos em Branco: {votosEmBranco} votos")
+    print(f"Votos Nulos: {votosNulo} votos")
+
+    print(f"Percentagem de votos nulos sobre o total de votos: {(votosNulo/votosTotal)*100:.2f}%")
+    print(f"A percentagem de votos em branco sobre o total de votos: {(votosEmBranco/votosTotal)*100:.2f}%")
